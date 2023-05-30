@@ -1,4 +1,4 @@
-const NotesModel = require('./model');
+const NotesModel = require('./notesModel');
 
 describe (NotesModel, () => {
   it('Should return an empty array when no notes have been added', () => {
