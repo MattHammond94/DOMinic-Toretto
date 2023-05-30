@@ -2,16 +2,16 @@
  * @jest-environment jsdom
  */
 
-const fs = require('fs');
+const fs = require('fs');  // the fs module lets us read non js files
 const NotesView = require('./notesView');
 const NotesModel = require('./notesModel');
 let view;
-jest.mock('./notesModel');
+jest.mock('./notesModel');  //mocking implemented.
 
 describe ('NotesView', () => {
 
   beforeEach(() => {
-    document.body.innerHTML = fs.readFileSync('./index.html');
+    document.body.innerHTML = fs.readFileSync('./index.html');  //set the 'Real' content(doc.body) - (that is because Jest "mocks" the HTML content internally)
     NotesModel.mockClear();
     let model = new NotesModel();
     view = new NotesView(model);
