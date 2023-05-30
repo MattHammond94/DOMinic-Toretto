@@ -17,7 +17,7 @@ describe ('NotesView', () => {
     view = new NotesView(model);
   });
 
-  it("Should ", () => {
+  it("Should return an array of all note texts", () => {
     view.model.getNotes.mockImplementationOnce(() => {
       return ["Note 1", "Note 2", "Note 3"]
     });
@@ -25,5 +25,6 @@ describe ('NotesView', () => {
     expect(document.querySelectorAll(".note").length).toBe(3);
   });
 });
+
 
 
