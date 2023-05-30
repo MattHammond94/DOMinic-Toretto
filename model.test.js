@@ -20,4 +20,13 @@ describe (NotesModel, () => {
     model2.addNote("Sardines");
     expect(model2.getNotes()).toEqual(["Cabbage", "Twisters", "Sardines"]);
   });
+
+  it('Should return an empty array when reset is called after multiple notes added', () => {
+    const model3 = new NotesModel();
+    model3.addNote("Cabbage");
+    model3.addNote("Twisters");
+    model3.addNote("Sardines");
+    model3.reset();
+    expect(model3.getNotes()).toEqual([]);
+  });
 });
