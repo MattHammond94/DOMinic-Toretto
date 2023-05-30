@@ -12,4 +12,12 @@ describe (NotesModel, () => {
     model1.addNote("Twisters");
     expect(model1.getNotes().length).toBe(2);
   });
+
+  it('Should return an array of all added notes', () => {
+    const model2 = new NotesModel();
+    model2.addNote("Cabbage");
+    model2.addNote("Twisters");
+    model2.addNote("Sardines");
+    expect(model2.getNotes()).toEqual(["Cabbage", "Twisters", "Sardines"]);
+  });
 });
