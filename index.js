@@ -11,3 +11,7 @@ console.table(model.getNotes());  //.table method/funct used as return value is 
 const NotesView = require('./notesView');
 view = new NotesView(model);
 view.displayNotes();
+
+const NotesClient = require('./notesClient');
+client = new NotesClient();
+client.getInfo();
