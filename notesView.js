@@ -28,6 +28,7 @@ class NotesView {
   addNewNote(newNote) {
     this.model.addNote(newNote);
     this.displayNotes();
+    document.querySelector('#new-note').value = "";
   }
 
   clearNotes() {

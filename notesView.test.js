@@ -43,7 +43,15 @@ describe ('NotesView', () => {
     expect(document.querySelectorAll('div.note').length).toBe(2);
   });
 
-
+  it('Should not display the input value of previous note within the input bar', () => {
+    const model4 = new NotesModel();
+    const view4 = new NotesView(model4);
+    const input = document.querySelector('#new-note');
+    input.value = "Brush the magic carpet";
+    const button = document.querySelector('#add-note-button');
+    button.click();
+    expect(input.value).toBe('');
+  });
 
   it('Should clear all current notes when button is clicked', () => {
     const model4 = new NotesModel();
