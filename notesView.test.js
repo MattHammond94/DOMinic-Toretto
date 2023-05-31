@@ -42,4 +42,16 @@ describe ('NotesView', () => {
     view3.displayNotes();
     expect(document.querySelectorAll('div.note').length).toBe(2);
   });
+
+
+
+  it('Should clear all current notes when button is clicked', () => {
+    const model4 = new NotesModel();
+    model4.addNote('Build a windmill out of cheddar');
+    model4.addNote('Polish my knuckleduster');
+    const view4 = new NotesView(model4);
+    const button = document.querySelector('#reset-notes-button');
+    button.click();
+    expect(document.querySelectorAll('.note').length).toBe(0);
+  });
 });
