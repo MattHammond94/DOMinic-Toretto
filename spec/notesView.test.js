@@ -3,8 +3,8 @@
  */
 
 const fs = require('fs');  // the fs module lets us read non js files
-const NotesView = require('./notesView');
-const NotesModel = require('./notesModel');
+const NotesView = require('../lib/notesView');
+const NotesModel = require('../lib/notesModel');
 
 describe ('NotesView', () => {
 
