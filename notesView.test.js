@@ -32,4 +32,14 @@ describe ('NotesView', () => {
     expect(document.querySelectorAll('.note').length).toBe(1);
     expect(document.querySelectorAll('.note')[0].textContent).toBe('Walk the Salmon');
   });
+
+  it('Should display one complete list of all notes regardless of how many displayNotes calls', () => {
+    const model3 = new NotesModel();
+    const view3 = new NotesView(model3);
+    model3.addNote("Feed the turtle");
+    model3.addNote("Wash the camel");
+    view3.displayNotes();
+    view3.displayNotes();
+    expect(document.querySelectorAll('div.note').length).toBe(2);
+  });
 });

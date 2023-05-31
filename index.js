@@ -1,8 +1,6 @@
 const NotesModel = require('./notesModel');
 const model = new NotesModel();
 model.addNote('Feed the Peregrine Falcon');
-model.addNote('Walk the ferrett');
-model.addNote('Fish for Salmon');
 console.table(model.getNotes());  //.table method/funct used as return value is an array
 
 // console.log('The notes app is running.');
