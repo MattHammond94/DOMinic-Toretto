@@ -5,6 +5,8 @@
 const fs = require('fs');  // the fs module lets us read non js files
 const NotesView = require('../lib/notesView');
 const NotesModel = require('../lib/notesModel');
+const NotesClient = require('../lib/notesclient');
+require('jest-fetch-mock').enableMocks()
 
 describe ('NotesView', () => {
 
@@ -61,5 +63,21 @@ describe ('NotesView', () => {
     const button = document.querySelector('#reset-notes-button');
     button.click();
     expect(document.querySelectorAll('.note').length).toBe(0);
+  });
+
+  it('Should return a list of all notes retrieved from the API', (done) => {
+    const client = new NotesClient();
+    const model = new NotesModel();
+    const view5 = new NotesView(model, client);
+
+    fetch.mockResponseOnce(JSON.stringify({
+      notes: ["A secret note", "Another Secret Note", "Another one"]
+    }));
+
+    // view5.displayNotesFromTheApi((returnedDataFromApi) => {
+    //   expect(returnedDataFromApi.notes[1]).toBe("Another Secret Note");
+    //   expect(returnedDataFromApi.notes.length).toBe(3);
+    //   done();
+    // });
   });
 });
